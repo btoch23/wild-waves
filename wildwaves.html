@@ -34,21 +34,18 @@
             if (attraction === 'wave pool') {
                 if (height >= WAVE_POOL_MIN_HEIGHT) {
                     return true;
-                } else {
-                    return false;
                 }
+                return false;
             } else if (attraction === 'waterslide') {
                 if (height >= WATERSLIDE_MIN_HEIGHT) {
                     return true;
-                } else {
-                    return false;
                 }
+                return false;
             } else if (attraction === 'lazy river') {
                 if (height >= LAZY_RIVER_MIN_HEIGHT) {
                     return true;
-                } else {
-                    return false;
                 }
+                return false;
             }
 
             /* ALSO WROTE IT AS A SWITCH EXPRESSION
