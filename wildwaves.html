@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Waves Aquatic Park</title>
+</head>
+
+<body>
+    <h1>Wild Waves Aquatic Park</h1>
+    <button type="button" onclick="buyTicket()">Purchase Attraction</button>
+    <script>
+        const WAVE_POOL_MIN_HEIGHT = 42;
+        const WATERSLIDE_MIN_HEIGHT = 48;
+        const LAZY_RIVER_MIN_HEIGHT = 36;
+
+        function buyTicket() {
+            const attractionType = prompt('Which attraction would you like to visit? Wave pool, waterslide, or lazy river?').toLowerCase();
+            const userHeight = prompt('How tall are you in inches?');
+            console.log(`User's selected attraction is ${attractionType}`);
+            console.log(`User's height is ${userHeight} inches`);
+            const isAllowed = checkHeight(attractionType, userHeight);
+            const isAccompanied = checkAccompanied(userHeight);
+            if (isAccompanied === true || isAllowed === true) {
+                alert('You can access this attraction!');
+            } else {
+                alert('You are not tall enough to access this attraction!');
+            }
+        }
+
+        function checkHeight(attraction, height) {
+            if (attraction === 'wave pool') {
+                if (height >= WAVE_POOL_MIN_HEIGHT) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (attraction === 'waterslide') {
+                if (height >= WATERSLIDE_MIN_HEIGHT) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else if (attraction === 'lazy river') {
+                if (height >= LAZY_RIVER_MIN_HEIGHT) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            /* ALSO WROTE IT AS A SWITCH EXPRESSION
+
+            switch (attraction) {
+                case 'wave pool':
+                    if (height >= WAVE_POOL_MIN_HEIGHT) {
+                        return true;
+                    }
+                    return false;
+                    break;
+                case 'waterslide':
+                    if (height >= WATERSLIDE_MIN_HEIGHT) {
+                        return true;
+                    }
+                    return false;
+                    break;
+                case 'lazy river':
+                    if (height >= LAZY_RIVER_MIN_HEIGHT) {
+                        return true;
+                    }
+                    return false;
+                    break;
+            } */
+        }
+
+        function checkAccompanied(height) {
+            if (height >= 43) {
+                const accompanied = prompt('Are you being accompanied by an adult?').toLowerCase();
+                if (accompanied === 'yes' || accompanied === 'y') {
+                    return true;
+                }
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
